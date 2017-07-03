@@ -14,14 +14,12 @@ def vagrant_up():
     try:
         sp = Popen("vagrant up", shell=True, stdout=PIPE, stderr=PIPE)
         logger.info("Spawning vagrant machines ...")
-        output, error = sp.communicate()
 
-        # output = check_output(vag_up, stderr=STDOUT)
+        stdout, stderr = sp.communicate()
+        logger.info(stdout)
 
-        if output:
-            logger.info(output)
-        else:
-            raise Exception(error)
+        if stderr:
+            raise Exception(stderr)
 
     except Exception as err:
         logger.error(
