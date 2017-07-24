@@ -1,10 +1,9 @@
-from vagrant_logger import Logger
-import os
+from Framework.vagrant_logger import Logger
 from subprocess import Popen, PIPE
 
 # FILENAME = os.path.basename(__file__)
 
-logger = Logger(file_id=os.path.basename(__file__))
+# logger = Logger(file_id=FILENAME)
 
 
 def vagrant_up():
@@ -21,6 +20,8 @@ def vagrant_up():
         if stderr:
             raise Exception(stderr)
 
+        return
+
     except Exception as err:
         logger.error(
             "Couldn't bring up the machine/machines\
@@ -28,3 +29,6 @@ def vagrant_up():
 
 
 vagrant_up()
+
+logger = Logger(file_id="tc1")
+logger.info("file is what it looks")

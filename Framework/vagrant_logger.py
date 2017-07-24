@@ -11,9 +11,8 @@ LOG_ROOT = os.path.join(os.path.dirname(__file__), 'LOGS')
 
 class Logger(object):
 
-    def __init__(self, logger=None, date_tag=None,
-                 filehandler=None, consolehandler=None,
-                 file_id=None):
+    def __init__(self, logger=None, date_tag=None, filehandler=None,
+                 consolehandler=None, file_id=None):
 
         if date_tag is None:
             dateTag = datetime.datetime.now()\
